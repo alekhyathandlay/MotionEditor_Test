@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+
+        <OnClick
+            motion:clickAction="toggle"
+            motion:targetId="@+id/dino1" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="90"
+                motion:motionTarget="@id/description" />
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="90"
+                motion:motionTarget="@id/favorite" />
+        </KeyFrameSet>
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Dinosaur"
+            android:textSize="64sp"
+            motion:layout_constraintEnd_toEndOf="@id/under_card"
+            motion:layout_constraintStart_toStartOf="@+id/under_card"
+            motion:layout_constraintTop_toTopOf="@id/under_card" />
+
+        <Constraint android:id="@+id/description">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:padding="40dp"
+                android:text="@string/about_dinosaur"
+                android:textSize="24sp"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toBottomOf="parent" />
+
+        </Constraint>
+
+        <Constraint android:id="@+id/favorite">
+            <Layout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="96dp"
+                android:background="@android:drawable/btn_plus"
+                motion:layout_constraintBottom_toTopOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent" />
+            <PropertySet android:alpha="0" />
+        </Constraint>
+
+        <Constraint android:id="@+id/under_card">
+            <Layout
+                android:layout_width="100dp"
+                android:layout_height="250dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toTopOf="parent" />
+            <PropertySet android:alpha="0" />
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#FB543F" />
+        </Constraint>
+
+        <Constraint android:id="@+id/dino1">
+            <Layout
+                android:layout_width="328dp"
+                android:layout_height="400dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Dinosaur"
+            android:textSize="64sp"
+            motion:layout_constraintEnd_toEndOf="@id/under_card"
+            motion:layout_constraintStart_toStartOf="@+id/under_card"
+            motion:layout_constraintTop_toTopOf="@id/under_card" />
+
+        <Constraint android:id="@+id/description">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:padding="40dp"
+                android:text="@string/about_dinosaur"
+                android:textSize="24sp"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toBottomOf="@id/under_card" />
+        </Constraint>
+
+        <Constraint android:id="@+id/favorite">
+            <Layout
+
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="96dp"
+                android:background="@android:drawable/btn_star"
+                motion:layout_constraintBottom_toBottomOf="@id/under_card"
+                motion:layout_constraintEnd_toEndOf="@id/under_card"
+                motion:layout_constraintStart_toEndOf="@+id/dino1" />
+            <PropertSet android:alpha="1" />
+        </Constraint>
+
+        <Constraint android:id="@+id/under_card">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toTopOf="parent" />
+            <Transform android:rotationY="0" />
+            <CustomAttribute
+                motion:attributeName="backgroundColor"
+                motion:customColorValue="#0e8751" />
+            <PropertySet android:alpha="1" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/dino1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            motion:layout_constraintBottom_toBottomOf="@id/under_card"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+</MotionScene>
